@@ -1,0 +1,13 @@
+services:
+  allied-search:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      TRUST_PROXY: "1"            # set to 1 only when behind a reverse proxy such as Caddy or nginx
+      CONTACT_EMAIL: ""           # shown on the privacy and terms pages
+      # ENGINES: "google,duckduckgo,bing,brave,mojeek"
+      # OUTBOUND_PROXY: "socks5h://tor:9050"
+    read_only: true
+    cap_drop: [ALL]

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Privacy policy - Allied Search{% endblock %}
+{% block content %}
+<header class="topbar">
+  <a class="brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='logo.png') }}" width="40" height="40" alt=""><span>Allied Search</span></a>
+</header>
+<main class="doc">
+  <h1>Privacy policy</h1>
+  <p class="updated">Last updated: October 2026</p>
+
+  <h2>What Allied Search does</h2>
+  <p>Allied Search forwards your query to several search engines on your behalf, merges their answers, and shows you one list. The engines see this server, not you.</p>
+
+  <h2>What we collect</h2>
+  <p>Nothing is stored. Queries are held in memory while a search runs and are discarded when the page is sent. There is no database, no search history, no user account, no advertising profile, no analytics and no cookies.</p>
+  <p>The rate limiter keeps a salted hash of your IP address and a list of timestamps in memory for up to one minute. The salt is regenerated each time the server restarts, so the hashes cannot be linked to you afterwards.</p>
+
+  <h2>What the search engines see</h2>
+  <p>Each engine receives your query text and this server's IP address, with a generic browser identifier that changes between requests. They do not receive your IP address, cookies or browser details. Each engine applies its own privacy policy to the query it receives.</p>
+
+  <h2>What the sites in the results see</h2>
+  <p>Result links open the destination site directly and send no referrer. Once you open a site, that site can see your IP address and follows its own privacy policy. Tracking parameters such as utm_source and fbclid are removed from result links.</p>
+
+  <h2>Your own device and network</h2>
+  <p>Your browser may keep the searches you make in its history. Your network provider can see that you connected to this server. Use a private window or a VPN if that matters to you.</p>
+
+  <h2>Hosting and logs</h2>
+  <p>Allied Search does not write access logs or query logs. The operator's hosting provider or reverse proxy may keep its own connection logs, outside the control of this software.</p>
+
+  <h2>Contact</h2>
+  <p>{% if contact_email %}Questions about this policy: <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.{% else %}Questions about this policy go to the operator of this instance.{% endif %}</p>
+</main>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Terms and conditions - Allied Search{% endblock %}
+{% block content %}
+<header class="topbar">
+  <a class="brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='logo.png') }}" width="40" height="40" alt=""><span>Allied Search</span></a>
+</header>
+<main class="doc">
+  <h1>Terms and conditions</h1>
+  <p class="updated">Last updated: October 2026</p>
+
+  <h2>Using the service</h2>
+  <p>By using Allied Search you agree to these terms. If you do not agree, do not use the service.</p>
+
+  <h2>Acceptable use</h2>
+  <p>Use the service for ordinary searching. Do not send automated or bulk queries, try to overload the service, or use it to break the law. The operator may limit or block access to protect the service.</p>
+
+  <h2>Third-party content</h2>
+  <p>Results come from third-party search engines and point to third-party websites. Allied Search does not write, review or endorse that content, and is not responsible for it, for its accuracy or for what happens when you visit it.</p>
+
+  <h2>Availability</h2>
+  <p>Search engines can block or change their pages at any time, so some engines may return nothing on a given search. The service is provided as is, without any warranty of availability or accuracy.</p>
+
+  <h2>Liability</h2>
+  <p>To the extent the law allows, the operator is not liable for any loss that comes from using the service or from relying on its results.</p>
+
+  <h2>Changes</h2>
+  <p>These terms may change. Continued use after a change means you accept the new terms.</p>
+
+  <h2>Contact</h2>
+  <p>{% if contact_email %}Questions about these terms: <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.{% else %}Questions about these terms go to the operator of this instance.{% endif %}</p>
+</main>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}{{ query }} - Allied Search{% endblock %}
+{% block content %}
+<header class="topbar">
+  <a class="brand" href="{{ url_for('index') }}" aria-label="Allied Search home">
+    <img src="{{ url_for('static', filename='logo.png') }}" width="40" height="40" alt="">
+    <span>Allied Search</span>
+  </a>
+  {% include "_searchbox.html" %}
+</header>
+<main class="results">
+  <p class="meta">
+    {{ results|length }} result{{ '' if results|length == 1 else 's' }} in {{ '%.1f'|format(elapsed) }} s
+    {% if page > 1 %}(page {{ page }}){% endif %}
+  </p>
+  {% if failed and results %}
+  <p class="notice">No results from {{ failed|join(", ") }}. Showing what the other engines returned.</p>
+  {% endif %}
+
+  {% if not results %}
+  <section class="empty">
+    <h2>No results for "{{ query }}"</h2>
+    <p>Check the spelling or try fewer words.</p>
+    {% if failed %}<p class="notice">Engines that did not respond: {{ failed|join(", ") }}. Try again in a moment.</p>{% endif %}
+  </section>
+  {% endif %}
+
+  <ol class="result-list">
+    {% for r in results %}
+    <li class="result">
+      <div class="result-url">{{ r.url|display_url }}</div>
+      <a class="result-title" href="{{ r.url }}" rel="noopener noreferrer nofollow">{{ r.title }}</a>
+      {% if r.snippet %}<p class="result-snippet">{{ r.snippet }}</p>{% endif %}
+      <div class="result-engines">{% for e in r.engines %}<span class="tag">{{ e }}</span>{% endfor %}</div>
+    </li>
+    {% endfor %}
+  </ol>
+
+  {% if results %}
+  <nav class="pager" aria-label="Pagination">
+    {% if page > 1 %}<a class="button" href="{{ url_for('search', q=query, page=page-1) }}" rel="prev">Previous</a>{% endif %}
+    {% if has_next %}<a class="button" href="{{ url_for('search', q=query, page=page+1) }}" rel="next">Next</a>{% endif %}
+  </nav>
+  {% endif %}
+</main>
+{% endblock %}

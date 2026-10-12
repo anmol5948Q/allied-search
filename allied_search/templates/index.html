@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body_class %}home{% endblock %}
+{% block content %}
+<main class="hero">
+  <img class="hero-logo" src="{{ url_for('static', filename='logo.png') }}" width="168" height="168" alt="">
+  <h1>Allied Search</h1>
+  <p class="tagline">One search, many engines. Your queries are never saved.</p>
+  {% with autofocus=true %}{% include "_searchbox.html" %}{% endwith %}
+  <p class="sources">Searching {{ engine_labels|join(", ") }}</p>
+</main>
+{% endblock %}

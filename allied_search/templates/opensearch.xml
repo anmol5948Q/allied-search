@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Allied Search</ShortName>
+  <Description>Private meta-search with no tracking and no saved history.</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="32" height="32" type="image/png">{{ root }}/static/favicon-32.png</Image>
+  <Url type="text/html" method="get" template="{{ root }}/search?q={searchTerms}"/>
+</OpenSearchDescription>

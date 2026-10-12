@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Search paused - Allied Search{% endblock %}
+{% block content %}
+<header class="topbar">
+  <a class="brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='logo.png') }}" width="40" height="40" alt=""><span>Allied Search</span></a>
+</header>
+<main class="results"><section class="empty"><h2>Search paused</h2><p>{{ message }}</p></section></main>
+{% endblock %}

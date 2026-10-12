@@ -1,0 +1,5 @@
+<form class="searchbox" action="{{ url_for('search') }}" method="get" role="search">
+  <input type="search" name="q" value="{{ query|default('') }}" placeholder="Search the web" aria-label="Search query"
+         maxlength="400" autocomplete="off" autocapitalize="off" spellcheck="false" {% if autofocus %}autofocus{% endif %} required>
+  <button type="submit">Search</button>
+</form>

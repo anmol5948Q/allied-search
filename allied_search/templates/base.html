@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Allied Search combines results from Google, Bing, DuckDuckGo and other engines. It stores no search history and builds no profile.">
+  <title>{% block title %}Allied Search{% endblock %}</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32.png') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+  <link rel="search" type="application/opensearchdescription+xml" title="Allied Search" href="{{ url_for('opensearch') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{% block content %}{% endblock %}
+<footer class="footer">
+  <a href="{{ url_for('privacy') }}">Privacy policy</a>
+  <a href="{{ url_for('terms') }}">Terms and conditions</a>
+</footer>
+<script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
