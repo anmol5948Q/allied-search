@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Allied Search
 
 A self-hosted, privacy-first meta-search engine. It sends your query to Google, DuckDuckGo, Bing, Brave and Mojeek, merges and ranks the answers, and shows one clean list. Nothing is stored.
@@ -47,3 +48,8 @@ Add an engine by subclassing `Engine` in `allied_search/engines.py` (implement `
 - Engines can change their HTML or block automated traffic at any time. A broken parser shows up as "No results from X" and the other engines still answer. Google blocks scrapers most often.
 - Run the offline tests with `python -m unittest discover -s tests`.
 - Launch checklist: connect your custom domain with HTTPS, set `CONTACT_EMAIL`, and have the privacy policy and terms reviewed if the instance is public.
+=======
+# allied-search
+A privacy-first, self-hosted meta-search engine built with Python and Flask. Aggregates results from Google, DuckDuckGo, Bing, Brave, and Mojeek, with deduplication, relevance ranking, rate limiting, and a clean web interface.
+>>>>>>> d475064ffc7d2e7ed51c29c91bfe8405de099a9b
+# Allied-search-
